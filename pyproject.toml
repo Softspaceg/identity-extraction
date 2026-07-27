@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "identity-extraction"
+version = "0.1.0"
+description = "Extraction of person names and ID/passport numbers from identity-document extracted_data dicts"
+requires-python = ">=3.10"
+dependencies = [
+    "identity-matching @ git+https://github.com/Softspaceg/identity-matching.git@v0.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/identity_extraction"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
