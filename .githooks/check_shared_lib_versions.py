@@ -58,7 +58,8 @@ def main() -> int:
     for file_name, repo_path, pinned in pins:
         latest = latest_tag(repo_path)
         if latest is None:
-            print(f"version check: couldn't reach GitHub for {repo_path}, skipping", file=sys.stderr)
+            msg = f"version check: couldn't reach GitHub for {repo_path}, skipping"
+            print(msg, file=sys.stderr)
             continue
         if pinned < latest:
             stale.append((file_name, repo_path, pinned, latest))
