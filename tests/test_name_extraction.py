@@ -115,7 +115,8 @@ class TestFindNamePairsBareStyle:
         assert pairs[0].arabic == "جون سميث"
 
     def test_bare_style_with_role_prefix(self):
-        pairs = find_name_pairs({"broker_name_english": "Ricky Wolf", "broker_name_arabic": "ريكي ولف"})
+        fields = {"broker_name_english": "Ricky Wolf", "broker_name_arabic": "ريكي ولف"}
+        pairs = find_name_pairs(fields)
         assert len(pairs) == 1
         assert pairs[0].role == "broker"
         assert pairs[0].arabic == "ريكي ولف"
@@ -182,6 +183,6 @@ class TestExtractNameBackwardCompatibility:
         assert extract_name({"area": "100 sqm"}) is None
 
     def test_finds_name_buried_in_nested_details_field(self):
-        """Regression: a 'details' wrapper (or any non-hardcoded container) must not hide the name."""
+        """A 'details' wrapper (or any non-hardcoded container) must not hide the name."""
         fields = {"details": {"party": {"name_(english)": "Buried Name"}}}
         assert extract_name(fields) == "buried name"

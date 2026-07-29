@@ -1,0 +1,16 @@
+#!/bin/sh
+# Warns (and blocks) if any Softspaceg shared-library git pin in this repo is
+# behind the latest upstream tag. Bypass with `git push --no-verify` if you're
+# pushing on purpose anyway.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+if command -v python3 >/dev/null 2>&1; then
+  PY=python3
+elif command -v python >/dev/null 2>&1; then
+  PY=python
+else
+  echo "shared-lib version check: no python on PATH, skipping" >&2
+  exit 0
+fi
+
+"$PY" "$DIR/check_shared_lib_versions.py"
