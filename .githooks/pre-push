@@ -1,7 +1,6 @@
 #!/bin/sh
-# Warns (and blocks) if any Softspaceg shared-library git pin in this repo is
-# behind the latest upstream tag. Bypass with `git push --no-verify` if you're
-# pushing on purpose anyway.
+# Warns (never blocks) if any Softspaceg shared-library git pin in this repo is
+# behind the latest upstream tag.
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
 if command -v python3 >/dev/null 2>&1; then

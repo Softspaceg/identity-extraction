@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Pre-push guard: warns and blocks if any Softspaceg shared-library git pin in
-this repo is behind the latest tag on GitHub, so an update never gets forgotten."""
+"""Pre-push guard: warns (never blocks) if any Softspaceg shared-library git pin
+in this repo is behind the latest tag on GitHub, so an update never gets forgotten."""
 
 import re
 import subprocess
@@ -77,10 +77,11 @@ def main() -> int:
             file=sys.stderr,
         )
     print(
-        "\nUpdate the pin(s) before pushing, or `git push --no-verify` to push anyway.\n",
+        "\nThis is a warning only — push proceeds either way. Update the pin(s) "
+        "when you're ready to pick up the new release.\n",
         file=sys.stderr,
     )
-    return 1
+    return 0
 
 
 if __name__ == "__main__":
