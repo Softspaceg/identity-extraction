@@ -8,7 +8,7 @@ version = "0.1.1"
 description = "Extraction of person names and ID/passport numbers from identity-document extracted_data dicts"
 requires-python = ">=3.10"
 dependencies = [
-    "identity-matching @ git+https://github.com/Softspaceg/identity-matching.git@v0.5.0",
+    "identity-matching @ git+https://github.com/Softspaceg/identity-matching.git@v0.6.0",
 ]
 
 [project.optional-dependencies]
