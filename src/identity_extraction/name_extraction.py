@@ -4,7 +4,7 @@ by an OCR/extraction pipeline for Emirates ID, passport, and similar identity
 documents.
 
 Once a name string is extracted, comparing it against another belongs in the
-identity_matching package (identity_matching.name_matching) — see that
+matching_utils package (matching_utils.name_matching) — see that
 package for normalize_name/name_similarity/names_match/best_name_match.
 """
 
@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from identity_matching.name_matching import normalize_name
+from matching_utils.name_matching import normalize_name
 
 
 def _nested_dict(fields: dict, key: str) -> dict:

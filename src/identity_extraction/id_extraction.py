@@ -4,7 +4,7 @@ extracted_data dicts produced by an OCR/extraction pipeline for Emirates ID,
 passport, and similar identity documents.
 
 Once a number is extracted, comparing it against another belongs in the
-identity_matching package (identity_matching.id_matching) — see that package
+matching_utils package (matching_utils.id_matching) — see that package
 for normalize_id_number/ids_match/find_conflicting_values.
 """
 
@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import re
 
-from identity_matching.id_matching import normalize_id_number
+from matching_utils.id_matching import normalize_id_number
 
 
 def _nested_dict(fields: dict, key: str) -> dict:

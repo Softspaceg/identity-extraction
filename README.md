@@ -8,7 +8,7 @@ so a fix to how a field is located (nested front/back merges, MRZ line
 parsing, role-prefixed party fields) happens once and takes effect in both.
 
 This is the extraction half of a two-package split — see
-[identity-matching](https://github.com/Softspaceg/identity-matching) for the
+[matching-utils](https://github.com/Softspaceg/matching-utils) for the
 other half: given already-extracted values, deciding whether they match.
 Extraction and matching are separate concerns on purpose: extraction is tied
 to a specific document schema (which can validly differ between consumers
@@ -24,9 +24,9 @@ lockstep.
   with MRZ fallback), `extract_passport_number` (including the merged
   passport + passport_continue shape).
 
-Depends on [identity-matching](https://github.com/Softspaceg/identity-matching)
+Depends on [matching-utils](https://github.com/Softspaceg/matching-utils)
 for value normalization (`normalize_name`, `normalize_id_number`) — extracted
-values are returned already normalized, ready to hand to identity-matching's
+values are returned already normalized, ready to hand to matching-utils's
 comparison functions.
 
 ## Using this from another project
@@ -49,7 +49,7 @@ dependencies = [
 from identity_extraction.name_extraction import extract_name
 from identity_extraction.id_extraction import extract_id_number
 
-from identity_matching.name_matching import names_match
+from matching_utils.name_matching import names_match
 
 name_a = extract_name(doc_a.extracted_data)
 name_b = extract_name(doc_b.extracted_data)
